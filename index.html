@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giros Extreme Operator</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="shortcut icon" href="Icon.png">
+
+</head>
+<body>
+      <!-- Etapa 1: Operação -->
+
+    <div class="etapa active" id="etapa1">
+        <h2>Dados da Operação</h2>
+      
+        <label for="responsavel">Responsável:</label>
+        <input type="text" id="responsavel" placeholder="Digite seu nome" required>
+      
+        <label for="lote">Número do Lote:</label>
+        <input type="text" id="lote" placeholder="Ex: LOTE-01" required>
+
+        <label for="operacao">Operação</label>
+    <select id="operacao">
+      <option value="" disabled selected>Escolha uma operação</option>
+      <option value="Recebimento">Recebimento</option>
+      <option value="Tacto 1">Tacto 1</option>
+      <option value="Tacto 2">Tacto 2</option>
+      <option value="Try Out">Try Out</option>
+      <option value="Embalagem">Embalagem</option>
+    </select>
+    <button class="btn-avancar" onclick="irParaEtapa2()">Avançar</button>
+  </div>
+
+  <!-- Etapa 2: Quantidade (exceto Recebimento) -->
+  <div class="etapa" id="etapa2">
+    <h2>Quantos ioiôs serão verificados?</h2>
+    <input type="number" id="quantidade" min="1" required>
+    <button class="btn-avancar" onclick="irParaEtapa3()">Continuar</button>
+  </div>
+
+  <!-- Etapa 3: Verificação de cada peça -->
+  <div class="etapa" id="etapa3">
+    <h2 id="textoVerificacao">O ioiô 1 passou?</h2>
+    <button class="btn-sim" onclick="responder('✔️')">✔️ Sim</button>
+    <button class="btn-nao" onclick="responder('❌')">❌ Não</button>
+  </div>
+
+  <!-- Etapa final -->
+  <div class="etapa" id="etapaFinal">
+    <h2>✅ Todas as verificações foram registradas!</h2>
+    <button class="btn-avancar" onclick="reiniciar()">Fazer outra operação</button>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
